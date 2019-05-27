@@ -10,7 +10,7 @@ Author : Clarence Stone
 
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
 
-##. Required Files - 3 included - SQL db needs to be downloaded seperately
+## Required Files - 3 included - SQL db needs to be downloaded seperately
 
 1. news_views.py - Please run after initializing databse, required for reporting.
 
