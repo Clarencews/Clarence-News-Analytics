@@ -1,8 +1,8 @@
-#Udacity Project 1 : News Analytics Report
+# Udacity Project 1 : News Analytics Report
 
 Author : Clarence Stone
 
-##Objective: Create a program that displays the answers to the questions below fro a provided database.
+## Objective: Create a program that displays the answers to the questions below fro a provided database.
 
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
@@ -10,7 +10,7 @@ Author : Clarence Stone
 
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
 
-##Required Files - 3 included - SQL db needs to be downloaded seperately
+##. Required Files - 3 included - SQL db needs to be downloaded seperately
 
 1. news_views.py - Please run after initializing databse, required for reporting.
 
@@ -21,7 +21,7 @@ Author : Clarence Stone
 4. newsdata.sql - download it from https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip and place it into the root folder of this repo. 
 There is a git .ignore file included that will exclude the db file from being uploaded during commits.
 
-##Setup via Vagrant Linux Environment 
+## Setup via Vagrant Linux Environment 
 
 1. Follow instructions below from udemy on how to set up a vagrant and virtual box.
 ```
@@ -67,13 +67,13 @@ From your terminal, inside the vagrant subdirectory, run the command vagrant up.
 
 5. Run python script newsdata.py
 
-##HOW IT WORKS
+## How it works
 
 news_views.py has two views that tie in all three tables of the news DB. 
 1. create article_views takes a total count of views by matching the path from the log table to the url path, extra code to avoid 404 and omit "/" (homepage) is also included.
 2. create popular_author takes the total counts of views from the previous view(article_views) and joins them based on the author name to sort articles by author popularity.
 
-#You must create both of these views before proceeding.
+# You must create both of these views before proceeding.
 
 newsdata.py 
 1. imports psycopg2 (for DB connection) and datetime (for date clean up)
@@ -82,13 +82,13 @@ newsdata.py
 4. top authors of all time are displayed by joining the popular_author view with the author table by matching v.author and a.id.
 5. request errors are displayed with one large sql query from only the log table. It takes the date, divides 404 status over total status and creates a percentage. Then sorts it from highest to lowest and uses the "HAVING" statement to ony show error rates above 1%.
 
-##Usage, code status, and how it can help you.
+## Usage, code status, and how it can help you.
 - newsdata.py has two dependencies, psycopg2 and datetime. Be sure to use `pip3 install psycopg2` and `pip3 install datetime` before running the program.
 - all code included has is PEP8 compliant as tested via pycodestyle use `pip3 install pycodestyle` to install it yourself.
 - all sql commands and methods can be reused to apply to any database.
 
 
-##SQL code for Views
+## SQL code for Views
 
 ```
 Article Views Ranked - gets a total count of views based on joining slug from article table and path from log table.
@@ -110,7 +110,7 @@ SELECT author, sum(views) AS sum
 	ORDER BY sum DESC;
 ```
 
-##Lisense information
+## Lisense information
 All code created in this git repo is open for use under the MIT license. See more details about this license below.
 https://github.com/angular/angular.js/blob/master/LICENSE
 
